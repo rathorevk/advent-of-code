@@ -4,12 +4,14 @@ defmodule AdventOfCode.Y2023.Day01 do
   Problem Link: https://adventofcode.com/2023/day/1
   """
 
+  import AdventOfCode.Helper, only: [fetch_input: 1]
+
   ##################################################################################
   # Public APIs
   ##################################################################################
 
   @spec part1([binary()]) :: number()
-  def part1(input \\ fetch_input()) do
+  def part1(input \\ fetch_input(_day = 1)) do
     input
     |> Enum.map(fn line ->
       extract_first_digit(line) * 10 + extract_first_digit(String.reverse(line))
@@ -18,7 +20,7 @@ defmodule AdventOfCode.Y2023.Day01 do
   end
 
   @spec part2([binary()]) :: number()
-  def part2(input \\ fetch_input()) do
+  def part2(input \\ fetch_input(_day = 1)) do
     input
     |> Enum.map(fn line ->
       extract_first_digit_2(line) * 10 + extract_first_digit_2(String.reverse(line))
@@ -29,12 +31,6 @@ defmodule AdventOfCode.Y2023.Day01 do
   ##################################################################################
   # Private Functions
   ##################################################################################
-
-  defp fetch_input(day \\ 1) do
-    day
-    |> AdventOfCode.Input.get!()
-    |> String.split("\n", trim: true)
-  end
 
   defp extract_first_digit(<<>>), do: <<>>
   defp extract_first_digit(<<x, _rest::binary>>) when x in ?1..?9, do: x - ?0

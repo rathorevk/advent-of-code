@@ -1,21 +1,15 @@
 defmodule AdventOfCode.Y2023.Day02Test do
   use ExUnit.Case
 
-  import AdventOfCode.Y2023.Day02
+  alias AdventOfCode.Y2023.Day02
 
-  @tag :skip
-  test "part1" do
-    input = nil
-    result = part1(input)
+  describe "Day02 verification" do
+    test "part1" do
+      assert Day02.part1() == 2348
+    end
 
-    assert result
-  end
-
-  @tag :skip
-  test "part2" do
-    input = nil
-    result = part2(input)
-
-    assert result
+    test "part2" do
+      assert Day02.part2() == 76008
+    end
   end
 end
